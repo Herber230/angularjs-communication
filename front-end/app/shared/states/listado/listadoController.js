@@ -5,15 +5,26 @@
 
     angular.module('app.ejemplo').controller('listadoController', controller);
 
-    controller.$inject = [];
+    controller.$inject = ['PersonaService'];
 
-    function controller()
+    function controller(PersonaService)
     {
         var vm = this;
 
         function activate()
         {
+            cargarPersonas();
+        };
 
+        function cargarPersonas()
+        {
+            PersonaService.getCollection().then(
+                (responseSuccess)=>{
+                    vm.personas = responseSuccess.data;
+                },(responseError)=>{
+
+                }
+            );
         };
 
 

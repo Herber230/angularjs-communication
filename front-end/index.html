@@ -8,8 +8,9 @@
 </head>
 <body>
 
-
-    <div ui-view=""></div>
+    <div class="container">
+        <div ui-view=""></div>
+    </div>    
 
     <br/>
     <!--Carga de dependencias-->
@@ -22,9 +23,12 @@
     <!--Carga de archivo principal de la aplicacion -->
     <script src="app/js/app.js"></script>
 
-    <!--Carga de controladores-->
+    <!--Carga de controladores y servicios-->
+    <script src="app/js/services/personaService.js"></script>
+    
     <script src="app/shared/states/home/homeController.js"></script>
     <script src="app/shared/states/listado/listadoController.js"></script>
-
+    <script src="app/shared/states/edicion/edicionController.js"></script>
+    
 </body>
 </html

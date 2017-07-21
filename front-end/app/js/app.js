@@ -32,10 +32,19 @@
                 templateUrl: 'app/shared/states/listado/listado.html',
                 controller: 'listadoController',
                 controllerAs: 'vm'                
-            });
-     
+            })
+            .state('app.edicion', {
+                url: '/edicion/:id',
+                templateUrl: 'app/shared/states/edicion/edicion.html',
+                controller: 'edicionController',
+                controllerAs: 'vm'                
+            });     
     };
 
+    mainModule.constant('AppConfig', { 
+        "baseUrl": "http://localhost:3001/api/"
+    });
+    
 })();
 
 

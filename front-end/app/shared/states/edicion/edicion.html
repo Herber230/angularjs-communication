@@ -1,0 +1,35 @@
+<br/><br/>
+
+<div class="row">
+        
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            Edicion
+        </div>
+        <div class="panel-body">
+
+            <form name="formEdicion" ng-submit="vm.guardar()">
+
+                <div class="row">
+                    <div class="col-xs-12 col-md-4">
+                        <input type="text" class="form-control" ng-model="vm.persona.nombre" placeholder="NOMBRE" />
+                    </div>
+                    <div class="col-xs-12 col-md-4">
+                        <input type="text" class="form-control" ng-model="vm.persona.apellido" placeholder="APELLIDO" />
+                    </div>
+                    <div class="col-xs-12 col-md-4">
+                        <input type="text" class="form-control" ng-model="vm.persona.edad" placeholder="EDAD" />
+                    </div>
+                </div>
+                <br/>
+                <div class="row">
+                    <center>
+                        <button type="submit" class="btn btn-success">Guardar</button>
+                    </center>
+                </div>
+                
+            </form>    
+
+        </div>
+    </div>
+</div>
