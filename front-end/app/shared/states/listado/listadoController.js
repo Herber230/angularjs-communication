@@ -5,9 +5,9 @@
 
     angular.module('app.ejemplo').controller('listadoController', controller);
 
-    controller.$inject = ['PersonaService'];
+    controller.$inject = ['PersonaService', '$state'];
 
-    function controller(PersonaService)
+    function controller(PersonaService, $state)
     {
         var vm = this;
 
@@ -27,6 +27,26 @@
             );
         };
 
+        vm.verPersona = function(persona)
+        {
+            $state.go('app.edicion', { id: persona.id });
+        };
+
+        vm.eliminarPersona = function(persona)
+        {
+            PersonaService.delete(persona.id).then( 
+                (responseSuccess)=>{
+                    console.info("Persona eliminada");
+                    cargarPersonas();
+                }, (responseError)=>{
+                    console.info("Error");
+                } );
+        };
+
+        vm.agregarPersona = function()
+        {
+            $state.go('app.edicion', { id: -1 });
+        };
 
         activate();
     };

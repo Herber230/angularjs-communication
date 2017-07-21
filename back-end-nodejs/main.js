@@ -16,12 +16,25 @@ var personas =
 
 app.all('/*', function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
   res.header("Access-Control-Allow-Headers", "X-Requested-With, Content-Type");
   next();
 });
 
 app.get('/api/persona', function (req, res) {
     res.json(personas);
+});
+
+app.get('/api/persona/:id', function (req, res) {
+
+    var idPersona = req.params.id;
+
+    var index = 0;
+    for (var i = 0; i < personas.length; i ++)
+        if (personas[i].id == idPersona)
+            index = i;
+    
+    res.json(personas[index]);
 });
 
 app.post('/api/persona', function (req, res) {
@@ -41,6 +54,35 @@ app.post('/api/persona', function (req, res) {
     personas.push(nuevaPersona);    
 
     res.json(nuevaPersona);
+});
+
+app.put('/api/persona', function (req, res) {
+
+    var persona = req.body;
+
+    var index = 0;
+
+    for (var i = 0; i < personas.length; i ++)
+        if (personas[i].id == persona.id)
+            index = i;
+    
+    personas[index] = persona;
+
+    res.json(persona);
+});
+
+app.delete('/api/persona/:id', function (req, res) {
+
+    var idPersona = req.params.id;
+
+    var index = 0;
+    for (var i = 0; i < personas.length; i ++)
+        if (personas[i].id == idPersona)
+            index = i;
+
+    personas.splice(index, 1);
+    
+    res.json( { "status": "ok" });
 });
 
 
