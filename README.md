@@ -3,9 +3,13 @@ AngularJS application with http requests
 
 The project is a basic example of how AngularJS works with a RESTful API.
 
-- /back-end-nodejs  // This folder contains an Express API prepared to allow CORS (Cross Domain Orign) requests using the port 3001
+- /back-end-nodejs  
 
-- /front-end    // This folder contains an AngularJS app running on Express and using the port 3000
+This folder contains an Express API prepared to allow CORS (Cross Domain Orign) requests using the port 3001
+
+- /front-end    
+
+This folder contains an AngularJS app running into a development web server called lite-server, and that server uses by default the port 3000. This app is configured to look for the backend running in port 3001.
     
 
 
@@ -34,3 +38,6 @@ The project is a basic example of how AngularJS works with a RESTful API.
     -`npm install` 
 
     -`npm run dev`
+    
+    
+4. Open a browser in localhost:3000
